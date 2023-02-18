@@ -50,3 +50,13 @@ ___
 * 세종시와 서울시 출산율 비교 
     - 서울시 데이터로 학습시킨 모델
     - 세종시 데이터로 학습시킨 모델
+
+# 모델링 분담
+- 제우
+    - ridge, lasso,elasticnet (규제가 있는 선형회귀)
+
+- 도희
+    - catboost (앙상블), decesionregressor, randomforestregressor (트리) 
+
+- 기훈
+    - xgboostregressor, lightboost, gradientboost (앙상블) 
