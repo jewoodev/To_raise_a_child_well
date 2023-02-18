@@ -23,3 +23,6 @@ ___
 
 # *주의사항*
 *데이터셋 가지고 올 때 출처도 기록해놔야 포트폴리오에 기록할 수 있다!*
+
+# 머신러닝 모델링 계획 설계도
+다른 페이지에 설계도가 놓여져 있습니다. 확인하시길 원하신다면 [페이지 링크]를 클릭하세요.[페이지 링크](https://github.com/jewoodev/To_raise_a_child_well/blob/main/data/dohee/project_process.md)
