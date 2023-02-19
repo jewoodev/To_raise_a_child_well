@@ -26,5 +26,7 @@
 - 재정자립도 : 
 - 여성 실업률 : 
 - 여성 고용률 : 
+- 예금은행예금액 : KOSIS, 통계청 / https://kosis.kr/statHtml/statHtml.do?orgId=101&tblId=DT_1YL21191&vw_cd=MT_GTITLE01&list_id=104&seqNo=&lang_mode=ko&language=kor&obj_var_id=&itm_id=&conn_path=MT_GTITLE01
+- 여성의 경제활동참여율 : KOSIS, 통계청 / https://kosis.kr/statHtml/statHtml.do?orgId=101&tblId=DT_1YL21191&vw_cd=MT_GTITLE01&list_id=104&seqNo=&lang_mode=ko&language=kor&obj_var_id=&itm_id=&conn_path=MT_GTITLE01
 
 
