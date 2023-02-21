@@ -19,7 +19,7 @@ PPT 및 결과 자료 취합
 - EDA : 변수 간 상관관계, 특성 중요도 파악  
 - 모델 학습 및 예측 : KNeighborsRegressor, DecisionTreeRegressor, RandomForestRegressor....
 
-## 기술 스택
+# 기술 스택
 <div align=center>
     <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=Pandas&logoColor=white">  
     <img src="https://img.shields.io/badge/Matplotlib-006c66?style=for-the-badge&logo=Matplotlib&logoColor=white">
@@ -30,14 +30,14 @@ PPT 및 결과 자료 취합
     <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=GitHub&logoColor=white">
 </div>
 
-## References
+# References
 
-### 참고 문헌
+## 참고 문헌
 
 - 연구책임자 조영태 교수 외 4인, "경기도 저출산 원인분석 및 출산동향예측 연구용", 서울대학교 보건대학원, 2016  
 - 최숙희, "출산율 반등 성공사례와 출산율에 영향을 미치는 요인 분석 OECD 국가를 대상으로", 여성경제연구, 2021 
 
-### 데이터 출처 
+## 데이터 출처 
 
 < 월 단위 >
 - 지가변동률 : KOSIS, 통계청, https://kosis.kr/statHtml/statHtml.do?orgId=408&tblId=DT_PLCAHTUSE
