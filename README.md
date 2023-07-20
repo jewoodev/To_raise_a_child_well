@@ -29,6 +29,103 @@ PPT 및 결과 자료 취합
     <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white">
     <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=GitHub&logoColor=white">
 </div>
+# PREVIEW
+
+'To raise a child well'은 통계청과 같은 신뢰성 있는 데이터 제공원으로부터 수집된 저출산의 이유가 될 수 있는 요소들을 EDA를 거쳐 저출산에 가장 큰 원인이 되는 것이 무엇인지 Intelligence를 제시하고 구축한 데이터베이스로 학습된 ML 모델에 그 원인 요소를 어느 정도의 해결됐을 때 저출산 문제가 어느 정도 나아지는지 예측하고 있습니다.
+
+# 개발 관련 설명
+
+<details>
+<summary>개발 관련 설명 펼치기</summary>
+<div markdown="1">
+
+### 데이터 수집
+
+행정 구역, 월 단위로 출산율에 영향을 미치는 요인 수집
+
+### 데이터 전처리
+
+데이터를 자르고 붙여내는 작업을 통해 전국 및 행정구역별 데이터베이스 구축
+
+<img src="https://github.com/jewoodev/music_resting_place/assets/105477856/8e5c571e-c80e-4394-b2cc-cf773535aef6" alt="image" style="zoom:67%;" />
+
+- 독립변수(x) : 출산율에 영향을 주는 요인 
+- 종속변수(y) : 출산율 = 출산아 수/가임기 여성의 수 
+- index : 2006-01 ~ 2021-12 
+
+### EDA
+
+독립 변수 간 상관관계 파악
+
+- 독립 - 독립
+- 독립 - 종속
+
+<img src="https://github.com/jewoodev/music_resting_place/assets/105477856/74e9265b-08f3-4e1c-b5ff-ae43cdb9c4bc" alt="image" style="zoom: 50%;" />
+
+연도별로 EDA를 했을 때 데이터는 이렇게 말하고 있습니다.
+
+
+
+혼인 수가 높고, 이혼율이 낮을수록
+
+여성의 학력이 높고, 여성의 실업율이 적을수록, 그러나 여성고용율이 낮을수록
+
+학원의 수가 적을수록, 도시화율이 낮을수록, 산부인과 수가 많을수록
+
+**출산율은 높아진다.**
+
+
+
+<img src="https://github.com/jewoodev/music_resting_place/assets/105477856/c42912e2-0d02-4f07-b313-928ba5a8e776" alt="image" style="zoom:50%;" />
+
+월별로 EDA를 했을 때는 
+
+
+
+혼인 수가 높고, 이혼율이 낮을수록 
+
+여성 실업율이 적을수록, 그러나 여성 경제활동 참가율이 낮을수록 
+
+소비자물가지수, 예금은행예금액, 아파트전세지수, 미분양주택수가 낮을수록
+
+**출산율이 높아진다.**
+
+
+
+등과 같은 것을 분석, 추론하고
+
+
+
+<img src="https://github.com/jewoodev/music_resting_place/assets/105477856/5554097d-2341-4fe1-b70e-291df241ba5c" alt="image" style="zoom:50%;" />
+
+변수간 상관관계를 통해 어떤 변수는 살릴지 버릴지 판단합니다.
+
+### ML 모델링
+
+<img src="https://github.com/jewoodev/music_resting_place/assets/105477856/bbde0872-c182-415d-8daf-1b9d7e9bd795" alt="image" style="zoom:67%;" />
+
+여러가지 머신러닝 모델들을 사용해보며 비교해본 결과, catboost가 가장 뛰어난 성능을 보였습니다.
+
+이러한 결과는 아무래도 이런 이유에서 비롯되지 않았나 생각했습니다.
+
+1. 기존의 부스팅 기법은 일괄적으로 모든 훈련 데이터를 대상으로 잔차 계산하여
+   - 순차적으로 모델 학습을 수행하다 보니 <span style="color:red">학습 속도가 느림</span>
+   - 잔차를 줄여나가기 위해 학습하는 모델이기에 <span style="color:red">오버피팅</span>이 일어날 수밖에 없음
+2. 캣 부스트는 일부만 가지고 잔차 계산 하여 모델 만든 뒤 &rarr; 그 다음 데이터의 잔차로 모델 예측 &rarr; 지금까지 학습한 모델의 잔차를 가지고 모델을 만든 뒤 &rarr; 그 다음 데이터의 잔차로 모델을 예측하는 방식
+   - 데이터 대부분이 수치형 변수인 경우 Light GBM 보다 학습 속도가 느리지만, <span style="color:red">파라미터 조정을 통해 여기저기 적용 가능하여 사용</span>
+
+모델링 후에 앞선 ERD 과정에서 선택된 '출산율에 중요한 영향을 미치는 요인 TOP3'를 조정해 출산율이 증가하는지 확인합니다.
+
+<img src="https://github.com/jewoodev/music_resting_place/assets/105477856/d810be54-ec24-4462-9da0-c09d892b4672" alt="image" style="zoom: 80%;" />
+
+- 소비자 물가 지수 2010년~2021년 40% 하락 
+- 아파트 전세 가격 2010년~2021년 30% 하락 
+- 여성의 경제 활동 참가율 2010년~2021년 10% 상승
+
+으로 값을 변경하자 출산율이 증가하는 것을 확인할 수 있었습니다.
+
+</div>
+</details>
 
 # References
 
